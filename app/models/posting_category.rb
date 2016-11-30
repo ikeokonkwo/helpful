@@ -1,0 +1,2 @@
+class PostingCategory < ApplicationRecord
+end
