@@ -1,10 +1,66 @@
-<h1> Welcome to helpful </h1>
 
-<!-- map attemp 1 using iframe -->
-<iframe width="300" height="300" frameborder="0" style="border:0"
- src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDvMR-SbW3_MBt162b-7JbUqp3SE7xoXIk&q=87.11,65.11"
- allowfullscreen>
-</iframe>
+<!-- <div class= "homepage">
+	<br>
+	<h1> Welcome User </h1>
+	<br> 
 
+	<div class ="map">
+
+		<!-- map attemp 1 using iframe -->
+	<!-- 	<iframe width="750" height="450" frameborder="10" style="border:10"
+		 src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDvMR-SbW3_MBt162b-7JbUqp3SE7xoXIk&q=25.76,-80.19"
+		 allowfullscreen>
+		</iframe>
+
+
+	</div>
+	<br>
+
+</div> --> <!--  -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+       #map {
+        height: 450px;
+        width: 100%;
+       }
+    </style>
+  </head>
+  <body>
+    <h3>Welcome User</h3>
+    <div id="map"></div>
+    <script>
+      function initMap() {
+        var uluru = {lat: 25.76, lng: -80.19};
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 4,
+          center: uluru
+        });
+        var marker = new google.maps.Marker({
+          position: uluru,
+          map: map
+        });
+
+		createMarker({lat: 28.59, lng: -81.44}, map, "Orlando Place");
+	}
+
+    var marker2;
+	function createMarker(coords, map, title){
+	  	marker2 = new google.maps.Marker({
+			position: coords,
+			map: map,
+			title: title
+		});
+	}
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCqdy40KUKm4WZFLhpFLGZA8GlEVow7YQ4&callback=initMap">
+    </script>
+
+
+  </body>
+</html>
 
 
