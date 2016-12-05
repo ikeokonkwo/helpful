@@ -1,23 +1,4 @@
 
-<!-- <div class= "homepage">
-	<br>
-	<h1> Welcome User </h1>
-	<br> 
-
-	<div class ="map">
-
-		<!-- map attemp 1 using iframe -->
-	<!-- 	<iframe width="750" height="450" frameborder="10" style="border:10"
-		 src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDvMR-SbW3_MBt162b-7JbUqp3SE7xoXIk&q=25.76,-80.19"
-		 allowfullscreen>
-		</iframe>
-
-
-	</div>
-	<br>
-
-</div> --> <!--  -->
-
 <!DOCTYPE html>
 <html>
   <head>
@@ -28,68 +9,128 @@
        }
     </style>
   </head>
+
   <body>
     <h3>Welcome User</h3>
     <br>
     <h5> Organizations looking for volunteers: </h5>
+
+<!--     <div class = "whatever"><%=@f.latitude%>  </div>
+	    <div class = "whateverer"> <%=@f.longitude %> </div> -->
+
+
+
+<!-- =========================================================================
+Function Breakdown of the following Map Div....
+1) initMap function: I am calling a JS function to initialize a map @ my home address.
+2) creatMarker function: takes the argument of the (coords, map, and title) to add a new pin
+NOTE: this has the var saved outside the function so as to be used as a handler for other stuff.
+3) createInfoWindow: ""  -->	    
+
     <div id="map"></div>
-    <script>
-      function initMap() {
-        var uluru = {lat: 42.380098, lng: -71.116629};
-        var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 4,
-          center: uluru
-        });
-        var marker = new google.maps.Marker({
-          position: uluru,
-          map: map
-        });
+	    <script>
+	      function initMap() {
 
-		createMarker({lat: 28.59, lng: -81.44}, map, "Orlando Place");
-	
+	      	var some_lat = parseInt($(".whatever").text());
+	      	var some_lng = parseInt($(".whateverer").text());
 
-    var marker2;
-	function createMarker(coords, map, title){
-	  	marker2 = new google.maps.Marker({
-			position: coords,
-			map: map,
-			title: title
-		});
-	}
 
-var infoWindow = new google.maps.InfoWindow({map: map});
 
-	        if (navigator.geolocation) {
-          navigator.geolocation.getCurrentPosition(function(position) {
-            var pos = {
-              lat: position.coords.latitude,
-              lng: position.coords.longitude
-            };
+	        var uluru = {lat: 27.840924, lng: -82.813442};
+	        var map = new google.maps.Map(document.getElementById('map'), {
+	          zoom: 4,
+	          center: uluru
+	        });
+	        var marker = new google.maps.Marker({
+	          position: uluru,
+	          map: map
+	        });
 
-            infoWindow.setPosition(pos);
-            infoWindow.setContent('Location found.');
-            map.setCenter(pos);
-          }, function() {
-            handleLocationError(true, infoWindow, map.getCenter());
-          });
-        } else {
-          // Browser doesn't support Geolocation
-          handleLocationError(false, infoWindow, map.getCenter());
-        }
-      
+		
+		    var marker2;
+			function createMarker(coords, map, title){
+			  	marker2 = new google.maps.Marker({
+					position: coords,
+					map: map,
+					title: title
+				});
+			}
+			createMarker({lat: 28.59, lng: -81.44}, map, "Orlando Place");
 
-      function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-        infoWindow.setPosition(pos);
-        infoWindow.setContent(browserHasGeolocation ?
-                              'Error: The Geolocation service failed.' :
-                              'Error: Your browser doesn\'t support geolocation.');
-      }
-      }
-    </script>
-    <script async defer
+
+
+			// Get GEOLOCATION OF USER- and place an info window there
+			var infoWindow = new google.maps.InfoWindow({map: map});
+		        if (navigator.geolocation) {
+	          		navigator.geolocation.getCurrentPosition(function(position) {
+	            	var pos = {
+	              	lat: position.coords.latitude,
+	              	lng: position.coords.longitude
+	            	};
+
+	            infoWindow.setPosition(pos);
+	            infoWindow.setContent('My location.');
+	            map.setCenter(pos);
+	             }, function() {
+	            handleLocationError(true, infoWindow, map.getCenter());
+	          });
+	        } else {
+	          // Browser doesn't support Geolocation
+	          handleLocationError(false, infoWindow, map.getCenter());
+	        }
+	      
+
+	      function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+	        infoWindow.setPosition(pos);
+	        infoWindow.setContent(browserHasGeolocation ?
+	                              'Error: The Geolocation service failed.' :
+	                              'Error: Your browser doesn\'t support geolocation.');
+	      }
+
+
+			function createInfoWindow(text){
+				var infowindow2 = new google.maps.InfoWindow({
+				content: text
+				});
+				return infowindow2;
+			}
+
+	      	var info = createInfoWindow("Congratulations!");
+		      google.maps.event.addListener(marker2, 'click', function() {
+		      info.open(map,marker2);
+			});
+
+		     createMarker({lat:some_lat, lng:some_lng}, map, "BWC");
+		     // createMarker({lat:42, lng:-71}, map, "BWC");
+
+
+		     $.ajax({
+		     		type: "GET",
+		     		url: "/locations",
+		     		success: printlocations,
+		     		error: handleLocationError,
+		     	});
+
+		     function printlocations(postings){
+		     	console.log("ayyeee");
+
+		     	console.log(postings);
+		     	postings.forEach(function (x){
+		     	latitude = parseInt(x.latitude);
+		     	longitude = parseInt(x.longitude);
+		     	title = x.title
+		     	console.log(x);
+ createMarker({lat:latitude, lng:longitude}, map, title); 
+		   });
+		  }
+		     
+		 }
+
+	</script>
+
+ <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCqdy40KUKm4WZFLhpFLGZA8GlEVow7YQ4&callback=initMap">
-    </script>
-
+ </script>
 
   </body>
 </html>
