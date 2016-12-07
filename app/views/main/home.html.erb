@@ -15,52 +15,52 @@
     <br>
     <h5> Organizations looking for volunteers: </h5>
 
-<!--     <div class = "whatever"><%=@f.latitude%>  </div>
-	    <div class = "whateverer"> <%=@f.longitude %> </div> -->
-
-
 
 <!-- =========================================================================
 Function Breakdown of the following Map Div....
 1) initMap function: I am calling a JS function to initialize a map @ my home address.
 2) creatMarker function: takes the argument of the (coords, map, and title) to add a new pin
 NOTE: this has the var saved outside the function so as to be used as a handler for other stuff.
-3) createInfoWindow: ""  -->	    
-
+3) createInfoWindow: makes the pop-up box appear  -->	    
+<!-- 4) printlocations: renders the seeds onto the Map  -->
     <div id="map"></div>
+
 	    <script>
-	      function initMap() {
 
-	      	var some_lat = parseInt($(".whatever").text());
-	      	var some_lng = parseInt($(".whateverer").text());
-
-
-
-	        var uluru = {lat: 27.840924, lng: -82.813442};
+	    function initMap() {
+	        var uluru = {lat: 100, lng: -100};
 	        var map = new google.maps.Map(document.getElementById('map'), {
-	          zoom: 4,
+	          zoom: 9,
 	          center: uluru
 	        });
+
 	        var marker = new google.maps.Marker({
 	          position: uluru,
 	          map: map
 	        });
 
 		
-		    var marker2;
-			function createMarker(coords, map, title){
-			  	marker2 = new google.maps.Marker({
-					position: coords,
-					map: map,
-					title: title
-				});
-			}
-			createMarker({lat: 28.59, lng: -81.44}, map, "Orlando Place");
+		// var marker2;
+		function createMarkerPlus(thePosting, map){
+			console.log(thePosting)
+			var latitude = Number(thePosting.latitude);
+			var longitude = Number(thePosting.longitude);
 
+		  	var marker = new google.maps.Marker({
+				position: { lat:latitude, lng:longitude },
+				title: thePosting.title,
+				map: map
+			});
+      
+      		var info = createInfoWindow(thePosting.description);
+	    	google.maps.event.addListener(marker, 'click', function() {
+		       info.open(map, marker);
+			});
+		}
+			
 
-
-			// Get GEOLOCATION OF USER- and place an info window there
-			var infoWindow = new google.maps.InfoWindow({map: map});
+		// Get GEOLOCATION OF USER- and place an info window there
+		var infoWindow = new google.maps.InfoWindow({map: map});
 		        if (navigator.geolocation) {
 	          		navigator.geolocation.getCurrentPosition(function(position) {
 	            	var pos = {
@@ -74,10 +74,11 @@ NOTE: this has the var saved outside the function so as to be used as a handler 
 	             }, function() {
 	            handleLocationError(true, infoWindow, map.getCenter());
 	          });
-	        } else {
-	          // Browser doesn't support Geolocation
-	          handleLocationError(false, infoWindow, map.getCenter());
-	        }
+	        	} else {
+	         
+	    // Browser doesn't support Geolocation
+	    handleLocationError(false, infoWindow, map.getCenter());
+	     		   }
 	      
 
 	      function handleLocationError(browserHasGeolocation, infoWindow, pos) {
@@ -95,12 +96,8 @@ NOTE: this has the var saved outside the function so as to be used as a handler 
 				return infowindow2;
 			}
 
-	      	var info = createInfoWindow("Congratulations!");
-		      google.maps.event.addListener(marker2, 'click', function() {
-		      info.open(map,marker2);
-			});
 
-		     createMarker({lat:some_lat, lng:some_lng}, map, "BWC");
+		     // createMarker({lat:some_lat, lng:some_lng}, map, "BWC");
 		     // createMarker({lat:42, lng:-71}, map, "BWC");
 
 
@@ -116,15 +113,11 @@ NOTE: this has the var saved outside the function so as to be used as a handler 
 
 		     	console.log(postings);
 		     	postings.forEach(function (x){
-		     	latitude = parseInt(x.latitude);
-		     	longitude = parseInt(x.longitude);
-		     	title = x.title
-		     	console.log(x);
- createMarker({lat:latitude, lng:longitude}, map, title); 
-		   });
-		  }
+	 			    createMarkerPlus(x, map); 
+		   		});
+		  	  }
 		     
-		 }
+		}
 
 	</script>
 

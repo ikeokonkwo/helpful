@@ -3,7 +3,6 @@
   <head>
     <title>Helpful</title>
     <%= csrf_meta_tags %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -27,13 +26,16 @@
 	            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 	                <ul class="nav navbar-nav">
 	                    <li>
-	                        <a href="#">Home</a>
+	                        <a href="/">Home</a>
 	                    </li>
 	                    <li>
 	                        <a href="#">Register!</a>
 	                    </li>
 	                    <li>
 	                        <a href="#">About Us</a>
+	                    </li>
+	                    <li>
+	                        <a href="/postings/new">Add a volunteer opportunity</a>
 	                    </li>
 	                </ul>
 	            </div>
@@ -44,20 +46,17 @@
 	</header>
 
 	
-
-<div class="backdrop">
-<br>
-<br>
-    <%= yield %>
- <br>
-<br>
-</div>
+	<div class="backdrop">
+		<br>
+		    <%= yield %>
+		<br>
+	</div>
 
 
-<div class="footer">
-    <footer>
-    	<h4> Be helpful. Get helpful. </h4>
-    </footer>
- </div>
+	<div class="footer">
+	    <footer>
+	    	<h4> Be helpful. Get helpful. </h4>
+	    </footer>
+	</div>
   </body>
 </html>
