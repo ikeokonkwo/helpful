@@ -45,6 +45,7 @@
  .navbar-inverse.navbar-fixed-top{
  	background-color:#162f5e;
  	color: #F7F8FC;
+ 	height: 50px;
  }
  
 
@@ -94,7 +95,25 @@ input[type=text]:focus {
 }
 
 .collapse.navbar-collapse{
+	position: relative;
 	float: right;
+	left: 50px;
+}
+
+.navbar-brand {
+	position: relative;
+	font-size: 30px;
+	
+}
+
+.welcome{
+	position: relative;
+	left:530px;
+}
+
+.heading{
+	position: relative;
+	left:500px;
 }
 
 

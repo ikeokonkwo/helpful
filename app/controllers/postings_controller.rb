@@ -16,9 +16,16 @@ class PostingsController < ApplicationController
 			:description => params[:posting][:description],
 			:latitude => coords.lat,
 			:longitude => coords.lng)
-		@my_posting.save
-		redirect_to root_path(@my_posting)
+
+		if @my_posting.save
+			redirect_to root_path(@my_posting)
+		else 
+			render "new"
 	end 
+
+	def edit
+		@my_posting = Posting.find params[:posting_id]
+	end
 
 	# def edit
 	# end 
@@ -27,4 +34,4 @@ class PostingsController < ApplicationController
 	# end
 
 end
-
+end
