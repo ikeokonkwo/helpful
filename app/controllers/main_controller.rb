@@ -5,7 +5,7 @@ class MainController < ApplicationController
 	end
 
 	def getlocations
-		
+
 		render json:Posting.all 
 	end 
 end

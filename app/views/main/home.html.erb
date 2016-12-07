@@ -29,7 +29,7 @@ NOTE: this has the var saved outside the function so as to be used as a handler 
 	    <script>
 
 	    function initMap() {
-	        var uluru = {lat: 100, lng: -100};
+	        var uluru = {lat: 25.766058, lng: -80.196155};
 	        var map = new google.maps.Map(document.getElementById('map'), {
 	          zoom: 11,
 	          center: uluru
@@ -43,9 +43,9 @@ NOTE: this has the var saved outside the function so as to be used as a handler 
 		
 		// var marker2;
 		function createMarkerPlus(thePosting, map){
-			console.log(thePosting)
 			var latitude = Number(thePosting.latitude);
 			var longitude = Number(thePosting.longitude);
+			console.log("CREATING MARKER", { latitude, longitude, title: thePosting.title })
 
 		  	var marker = new google.maps.Marker({
 				position: { lat:latitude, lng:longitude },

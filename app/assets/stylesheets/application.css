@@ -60,6 +60,7 @@
 
 .navbar-inverse .navbar-brand{
   color: #F7F8FC;
+
 }
 
 .postform{
@@ -92,6 +93,9 @@ input[type=text]:focus {
     width: 100%;
 }
 
+.collapse.navbar-collapse{
+	float: right;
+}
 
 
 
