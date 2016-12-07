@@ -12,7 +12,7 @@ class PostingsController < ApplicationController
 			:location => params[:posting][:location],
 			:description => params[:posting][:description])
 		@my_posting.save
-		redirect_to main_path(@my_posting)
+		redirect_to root_path(@my_posting)
 	end 
 
 	# def edit
