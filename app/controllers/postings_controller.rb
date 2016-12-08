@@ -21,7 +21,9 @@ class PostingsController < ApplicationController
 			redirect_to root_path(@my_posting)
 		else 
 			render "new"
-	end 
+		end 
+
+	end
 
 	def edit
 		@my_posting = Posting.find params[:posting_id]
@@ -33,5 +35,14 @@ class PostingsController < ApplicationController
 	# def destroy 
 	# end
 
+	def show
+		@my_posting = Posting.find(params[:id])
+		# @my_review = Review.find(params[:id])
+		render "details" 
+	end 
+
+
 end
-end
+
+
+

@@ -7,16 +7,29 @@
     <legend>Add a volunteer opportunity:</legend>
 
 	    <div class =form>
+
 	    <%=f.label :title %>:<br>
-	    <input type="text" style="width: 330px;" name="posting[title]" placeholder="Organization Name"><br>
+	    <input type="text" style="width: 330px;" name="posting[title]" placeholder="Organization Name">
+	    <br><br>
 		
 	    <%=f.label :location %>:<br>
 	    <input type="text" style="width: 330px;" name="posting[location]" placeholder="Address--e.g 123 30th Street, Seminole FL 33776">
 	    <br><br>
 
+
+		
+	    <%=f.label :email %>:<br>
+	    <input type="text" style="width: 330px;" name="posting[email]" placeholder="organization@email.com">
+	    <br><br>
+
+	    <%=f.label :phone %>:<br>
+	    <input type="text" style="width: 330px;" name="phone" placeholder="(777)-777-7777">
+	    <br><br>
+
 	    <%=f.label :description %>:<br>
-	    <textarea  style="width: 330px; height: 150px;" name="posting[description]" placeholder="Project Description / Volunteer Requirements / Contact Inofrmation"></textarea>
+	    <textarea  style="width: 330px; height: 150px;" name="posting[description]" placeholder="Project Description & Volunteer Requirements"></textarea>
 		<br><br>
+
 	    <input type="submit" value="Submit">
 
 	    </div>
