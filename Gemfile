@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+gem 'materialize-sass'
 
 gem 'geokit'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

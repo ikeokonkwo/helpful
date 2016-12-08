@@ -50,11 +50,37 @@ postingJ = Posting.create!(title:"Salvador Dalí Museum", description: "Voluntee
 			email: "volunteer.office@thedali.org", location: "1 Dali Blvd, St. Petersburg, FL 33701")
 
 
-reviewA = Review.create!(name:"Ike Okonkwo", notes: "The women who run the BWC (Natalica, Lenita, Rafa, Dani) are the nicest people ever. Very active in the social justice events in the community. This was a great chance for me to learn about small claims, Imigrant transnationalism, and practice my Portuguese. Will definitely be coming back.", rating:10)
 
-reviewB = Review.create!(name:"Ike Okonkwo", notes: "I volunteered in the ER a few years back and was able to get some really neat hands on bedside expereience and work with some really friendly and helpful healthcare practioners. Speaking spanish is a plus.", rating:7)
 
-reviewC = Review.create!(name:"Beth Morin", notes: "Though I felt at times that MAPS could be more organized and delegate less secretarial tasks, I still really liked the fact that they're flexible and my boss is really chill", rating:6 )
+# reviewA = postingC.reviews.create!(name:"Ike Okonkwo", notes: "The women who run the BWC (Natalica, Lenita, Rafa, Dani) are the nicest people ever. Very active in the social justice events in the community. This was a great chance for me to learn about small claims, Imigrant transnationalism, and practice my Portuguese. Will definitely be coming back.", rating:10)
+# reviewB = Review.create!(post_id: postingJ.id, name:"Ike Okonkwo", notes: "I volunteered in the ER a few years back and was able to get some really neat hands on bedside expereience and work with some really friendly and helpful healthcare practioners. Speaking spanish is a plus.", rating:7)
+# reviewC = Review.create!(post_id: postingJ.id, name:"Ike Okonkwo", notes: "I volunteered in the ER a few years back and was able to get some really neat hands on bedside expereience and work with some really friendly and helpful healthcare practioners. Speaking spanish is a plus.", rating:7)
+# reviewC = Review.create!(name:"Beth Morin", notes: "Though I felt at times that MAPS could be more organized and delegate less secretarial tasks, I still really liked the fact that they're flexible and my boss is really chill", rating:6 )
+
+
+
+
+
+
+reviewA = Review.create!(posting_id: postingA.id, name:"Ike Okonkwo", notes: "I volunteered in the ER a few years back and was able to get some really neat hands on bedside expereience and work with some really friendly and helpful healthcare practioners. Speaking spanish is a plus.", rating:7)
+
+reviewB = Review.create!(posting_id: postingB.id, name:"Ike Okonkwo", notes: "I volunteered in the ER a few years back and was able to get some really neat hands on bedside expereience and work with some really friendly and helpful healthcare practioners. Speaking spanish is a plus.", rating:7)
+
+reviewC = Review.create!(posting_id: postingC.id, name:"Ike Okonkwo", notes: "I volunteered in the ER a few years back and was able to get some really neat hands on bedside expereience and work with some really friendly and helpful healthcare practioners. Speaking spanish is a plus.", rating:7)
+
+reviewD = Review.create!(posting_id: postingD.id, name:"Ike Okonkwo", notes: "I volunteered in the ER a few years back and was able to get some really neat hands on bedside expereience and work with some really friendly and helpful healthcare practioners. Speaking spanish is a plus.", rating:7)
+
+reviewE = Review.create!(posting_id: postingE.id, name:"Ike Okonkwo", notes: "I volunteered in the ER a few years back and was able to get some really neat hands on bedside expereience and work with some really friendly and helpful healthcare practioners. Speaking spanish is a plus.", rating:7)
+
+reviewF = Review.create!(posting_id: postingF.id, name:"Ike Okonkwo", notes: "I volunteered in the ER a few years back and was able to get some really neat hands on bedside expereience and work with some really friendly and helpful healthcare practioners. Speaking spanish is a plus.", rating:7)
+
+reviewG = Review.create!(posting_id: postingG.id, name:"Ike Okonkwo", notes: "I volunteered in the ER a few years back and was able to get some really neat hands on bedside expereience and work with some really friendly and helpful healthcare practioners. Speaking spanish is a plus.", rating:7)
+
+reviewH = Review.create!(posting_id: postingH.id, name:"Ike Okonkwo", notes: "I volunteered in the ER a few years back and was able to get some really neat hands on bedside expereience and work with some really friendly and helpful healthcare practioners. Speaking spanish is a plus.", rating:7)
+
+reviewI = Review.create!(posting_id: postingI.id, name:"Ike Okonkwo", notes: "I volunteered in the ER a few years back and was able to get some really neat hands on bedside expereience and work with some really friendly and helpful healthcare practioners. Speaking spanish is a plus.", rating:7)
+
+reviewJ = Review.create!(posting_id: postingJ.id, name:"Ike Okonkwo", notes: "I volunteered in the ER a few years back and was able to get some really neat hands on bedside expereience and work with some really friendly and helpful healthcare practioners. Speaking spanish is a plus.", rating:7)
 
 
 # create_table "postings", force: :cascade do |t|

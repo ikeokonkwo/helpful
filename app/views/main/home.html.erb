@@ -5,14 +5,17 @@
     <style>
        #map {
         height: 450px;
-        width: 100%;
+        width: 70%;
+        left: 200px;
        }
     </style>
+
+ <script type="text/javascript" src="js/jquery.js"></script></script>
+
   </head>
 
   <body>
   <br>
-
   <div class="welcome">
     <h3>Welcome User</h3>
   </div>
@@ -27,15 +30,22 @@ Function Breakdown of the following Map Div....
 NOTE: this has the var saved outside the function so as to be used as a handler for other stuff.
 3) createInfoWindow: makes the pop-up box appear  -->	    
 <!-- 4) printlocations: renders the seeds onto the Map  -->
+   
+
     <div id="map"></div>
 
+
+  
 	    <script>
+
+
 
 	    function initMap() {
 	        var uluru = {lat: 25.766058, lng: -80.196155};
 	        var map = new google.maps.Map(document.getElementById('map'), {
 	          zoom: 11,
 	          center: uluru
+
 	        });
 
 	        var marker = new google.maps.Marker({
@@ -43,11 +53,16 @@ NOTE: this has the var saved outside the function so as to be used as a handler 
 	          map: map
 	        });
 
+
 		
 		// var marker2;
 		function createMarkerPlus(thePosting, map){
 			var latitude = Number(thePosting.latitude);
 			var longitude = Number(thePosting.longitude);
+
+			// var location = String(thePosting.location)
+			// var email = String(thePosting.email)
+			// var phone = String (thePosting.phone)
 			console.log("CREATING MARKER", { latitude, longitude, title: thePosting.title })
 
 		  	var marker = new google.maps.Marker({
@@ -56,9 +71,11 @@ NOTE: this has the var saved outside the function so as to be used as a handler 
 				map: map
 			});
       
-      		var info = createInfoWindow(thePosting.description);
+      		var info = createInfoWindow(thePosting);
 	    	google.maps.event.addListener(marker, 'click', function() {
 		       info.open(map, marker);
+
+
 			});
 		}
 			
@@ -93,9 +110,29 @@ NOTE: this has the var saved outside the function so as to be used as a handler 
 	      }
 
 
-			function createInfoWindow(text){
+	      	// createInfoWindow(thePosting.description);
+
+			function createInfoWindow(thePosting){
+				// var text = thePosting.description
+
+				var infoWindowHtml = `
+					<div class="card-blue-grey-darken-1">
+						<div class="card-content-black-text">
+							<div class="title-width card-title">
+							${thePosting.title}
+							</div>
+							<br><br>
+							<p>${thePosting.description}</p>
+						</div>
+
+						<br><br>
+						<div class="card-action">
+							<h7> <a href="/postings/${thePosting.id}">See details & reviews</a> </h7>
+						</div>
+					</div>`;
+
 				var infowindow2 = new google.maps.InfoWindow({
-				content: text
+					content: infoWindowHtml
 				});
 				return infowindow2;
 			}
@@ -125,9 +162,11 @@ NOTE: this has the var saved outside the function so as to be used as a handler 
 
 	</script>
 
+
  <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCqdy40KUKm4WZFLhpFLGZA8GlEVow7YQ4&callback=initMap">
  </script>
+
 
   </body>
 </html>

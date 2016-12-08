@@ -2,15 +2,12 @@
 <html>
   <head>
     <title>Helpful</title>
-    <%= csrf_meta_tags %>
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
 <style>
 		    div a {
 		    text-decoration: none;
-		    color: white;
-		    font-size: 20px;
+		    color: #162f5e;
+		    font-size: 15px;
 		    padding: 5px;
 		    display:inline-block;
 		}
@@ -34,6 +31,9 @@
 		ul li ul li a {display:block !important;} 
 		ul li ul li:hover {background: #666;}
 		</style>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
@@ -69,14 +69,21 @@
 	                        <a href="#">About Us</a>
 	                    </li>
 	                    <li>
-	                        <a href="#">Volunteer Postings</a>
+	                        <a href="#">Volunteer Openings</a>
 	                        	      <ul>
 								        <li><a href="/postings/new"">add a post</a></li>
 								        <li><a href="/postings/:id/edit">edit a post</a></li>
 								        <li><a href="#">delete a post</a></li>
-								        <li><a href="#">see post reviews</a></li>
 								      </ul>
 	                    </li>
+	                    <li>
+	                        <a href="#">My Reviews</a>
+	                        	      <ul>
+								        <li><a href="#"">add a review</a></li>
+								        <li><a href="#">edit a review</a></li>
+								        <li><a href="#">delete a review</a></li>
+								      </ul>
+
 	                </ul>
 	            </div>
 	            <!-- /.navbar-collapse -->
