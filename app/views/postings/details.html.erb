@@ -21,21 +21,22 @@
 	<div class="details2">
 		<u><h2> Reviews </h2></u>
 	
-		<div class="boxed2">
 			<% @review_array.each do |x| %>
+		<div class="boxed2">
 				
-					<h5>Author:<%= x.name %><h5>
+					<h5>Author: <%= x.name %><h5>
 			
-				    <h5>Review:<%= x.notes %></h5>
+				    <h5>Review: <%= x.notes %></h5>
 			
 					<h5>Rating: <%= x.rating %>/10</h5>
 				
-				<%end%>
 		</div>
+				<%end%>
 	</div>
 	</div>
 
 
+<a class="btn" href= "/postings/<%= @my_posting.id%>/reviews/new"> Add a review </a>
 
 
 

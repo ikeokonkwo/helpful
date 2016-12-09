@@ -26,18 +26,7 @@ class PostingsController < ApplicationController
 			render "new"
 		end 
 
-
-		@my_review = Review.new(
-			:name => params[:review][:name],
-			:notes => params[:review][:notes],
-			:rating => params[:review][:rating])
-
-		 @my_review.save
-			redirect_to root_path(@my_posting)
-		
-
-
-	end
+	end 
 
 	
 	# def edit
@@ -52,7 +41,8 @@ class PostingsController < ApplicationController
 
 	def show
 		@my_posting = Posting.find(params[:id])
-		@review_array = @my_posting.reviews
+		# @review_array = @my_posting.reviews
+		@review_array = @my_posting.reviews 
 		
 		render "details" 
 	end 
