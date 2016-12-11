@@ -17,6 +17,7 @@
 
 
 
+
 .footer {
 	position: relative;
 	bottom: 0px;
@@ -157,9 +158,14 @@ input[type=text]:focus {
 .details{
 	position: relative;
 	float: left;
-	left: 70px;
+	
 }
 
+.details-2{
+	position: relative;
+	float: left;
+	
+}
 .boxed{
 	border: 1px solid black ;
 	width: 80em;
@@ -169,11 +175,6 @@ input[type=text]:focus {
 	margin-top: 40px;
 }
 
-.details2{
-	position: relative;
-	float: left;
-	left: 70px;
-}
 
 .boxed2{
 	border: 1px solid black ;
@@ -184,5 +185,12 @@ input[type=text]:focus {
 	margin-bottom: 10px;
 }
 
+.project-details-page{
+	position: relative;
+	float:left;
+}
 
+.stylez{
+	position:relative;
 
+}

@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+	delete "/postings/:id", to: 'postings#destroy', as: "delete_posting"
+	delete "/postings/:posting_id/reviews/:id", to: 'reviewss#destroy', as: "delete_review"
+	
 	resources :postings do 
 			resources :reviews
 						end
@@ -10,7 +13,6 @@ Rails.application.routes.draw do
 	root "main#home"
 
 	get "/locations", to: "main#getlocations"
-
 	
 
 end
