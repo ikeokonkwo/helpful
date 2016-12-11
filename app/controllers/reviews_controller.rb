@@ -9,7 +9,7 @@ class ReviewsController < ApplicationController
 
 	def new
 		@my_posting = Posting.find(params[:posting_id])
-		@my_review = @my_posting.new
+		@my_review = @my_posting.reviews.new
 
 		render "new"
 	end
@@ -24,7 +24,7 @@ class ReviewsController < ApplicationController
 				)
 
 				 if @my_review.save
-					redirect_to root_path(@my_posting)
+					redirect_to posting_reviews_path(@my_posting)
 				else
       				render :new
     			end
@@ -44,7 +44,8 @@ class ReviewsController < ApplicationController
 		@my_review = @my_posting.reviews.find(params[:id])
 
 		if @my_review.update(review_params)
-		redirect_to "/postings/#{@my_posting.id}/reviews/#{@my_review.posting_id}"
+		# redirect_to "/postings/#{@my_posting.id}/reviews/#{@my_review.posting_id}"
+		redirect_to posting_reviews_path(@my_posting)
 		else
 			render :edit
 		end
@@ -55,7 +56,7 @@ class ReviewsController < ApplicationController
 		@my_posting = Posting.find(params[:id])
 		@review_array = @my_posting.reviews 
 		
-		render "details"
+		render :index
  
 	end 
 
@@ -65,7 +66,7 @@ class ReviewsController < ApplicationController
 		@my_review = @my_posting.reviews.find(params[:id])
 
 		@my_review.destroy
-		redirect_to "/postings/#{@my_posting.id}/reviews/#{@my_review.posting_id}"
+		redirect_to posting_reviews_path(@my_posting)
 	end
 	
 
@@ -75,4 +76,3 @@ class ReviewsController < ApplicationController
 		params.require(:review).permit(:name, :notes, :rating, :posting_id)
 	end 
 end
-
