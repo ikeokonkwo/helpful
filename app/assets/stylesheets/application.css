@@ -16,11 +16,15 @@
 
 
 
-
+.body{
+ max-width: 767px;
+ margin-left:-20px;
+ margin-right:-20px;
+}
 
 .footer {
 	position: relative;
-	bottom: 15px;
+	bottom: 0px;
 	background-color:#162f5e;
 	color: #F7F8FC;
 	text-align: center;
@@ -36,6 +40,7 @@
 	position: relative;
 	background-color:#adc9ff;
 	height: 100%;
+
 
  }
  #map{
@@ -86,7 +91,7 @@
 }
 .backdrop {
   min-height: 94vh;
-  min-width: 100vh;
+  width: 100%;
 }
 
 input[type=text] {
@@ -203,4 +208,9 @@ input[type=text]:focus {
 .faq{
 	position: relative;
 	left: 40px;
+}
+
+.sign{
+	position:relative;
+	left:500px;
 }
