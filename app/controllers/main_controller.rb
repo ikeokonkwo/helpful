@@ -8,4 +8,7 @@ class MainController < ApplicationController
 
 		render json:Posting.all 
 	end 
+	def about
+		render :about
+	end
 end

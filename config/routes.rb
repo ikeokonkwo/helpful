@@ -15,5 +15,6 @@ Rails.application.routes.draw do
 
 	get "/locations", to: "main#getlocations"
 	
+	get "/about", to: "main#about"
 
 end
