@@ -1,0 +1,31 @@
+<div class=postform>
+ 
+ <%= form_for [@my_posting, @my_review] do |f| %>
+ 
+   <fieldset>
+ 
+     <legend>Tell us about your volunteer experience:</legend>
+ 
+ 	    <div class = "form">
+ 
+ 	    <%=f.label :name %>:<br>
+ 	    <input type="text" style="width: 330px;" name="review[name]" placeholder="John Smith">
+ 	    <br><br>
+ 		
+ 
+ 
+ 	    <%=f.label :rating %>:<br>
+ 	    <input type="text" style="width: 330px;" name="review[rating]" placeholder="Please rate the your volunteer experience from 1-10 (10 being the best)">
+ 	    	/10
+ 	    <br><br>
+ 
+ 	    <%=f.label :notes %>:<br>
+ 	    <input type = "text_area"  style="width: 330px; height: 150px;" name="review[notes]" placeholder=" Please describe in detail your volunteer experience. What did you like most and what did you like least? "></textarea>
+ 		<br><br>
+ 
+ 	    <input type="submit" value="Submit">
+ 
+ 	    </div>
+   </fieldset>
+ </form>
+ <% end %>
