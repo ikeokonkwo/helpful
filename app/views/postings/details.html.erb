@@ -31,10 +31,13 @@
 				    <h5>Review: <%= review.notes %></h5>
 					<h5>Rating: <%= review.rating %>/10</h5>
 	
-		 <button class="w3-btn"><%= link_to "edit", edit_posting_review_path(@my_posting.id, review)%></button>
-	    <button class="w3-btn"><%= link_to "delete", delete_review_path(@my_posting.id, review), method: "delete", data: {confirm: "Are you sure?"} %></button>
+			<% if user_signed_in? %>
+				<button class="w3-btn"><%= link_to "edit", edit_posting_review_path(@my_posting.id, review)%></button>
+				<button class="w3-btn"><%= link_to "delete", delete_review_path(@my_posting.id, review), method: "delete", data: {confirm: "Are you sure?"} %></button>
+			
 		</div>
 		<%end%><br>
+		<% end %>
 			
 
  		<button class="w3-btn"><a class="btn" href= "/postings/<%= @my_posting.id%>/reviews/new"> Add a review </a></button>

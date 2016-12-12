@@ -1,5 +1,7 @@
 class ReviewsController < ApplicationController
 
+before_action :authenticate_user!, only: [:new, :create, :edit, :update]
+
   def index
    		@my_posting = Posting.find(params[:posting_id])
 		@review_array = @my_posting.reviews
