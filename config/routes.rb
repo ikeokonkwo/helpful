@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
 	delete "/postings/:id", to: 'postings#destroy', as: "delete_posting"
 	delete "/postings/:posting_id/review/:id", to: 'reviews#destroy', as: "delete_review"
 	
