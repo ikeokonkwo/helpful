@@ -3,7 +3,7 @@
   <head>
     <title>Helpful</title>
 
-<style>
+		<style>
 		    div a {
 		    text-decoration: none;
 		    color: #162f5e;
@@ -31,13 +31,13 @@
 		ul li ul li a {display:block !important;} 
 		ul li ul li:hover {background: #666;}
 		</style>
+
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-	
   	<header>
 	  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 	        <div class="container">
@@ -81,18 +81,15 @@
 	    </nav>
 	</header><br>
 	
-
-	<div class="backdrop">
-		<br>
-		    <%= yield %>
-
-		<br>
-	</div>
+<div id="wrap">
+  <div id="main" class="container clear-top">
+		<div class="content">
+			    <%= yield %>
+		</div>
+</div>
+</div>
 	
-	<p><div class="footer">
-	    <footer>
-	    	<h4> Be helpful. Get helpful. </h4>
-	    </footer>
-	</div>
+<footer class="footer"><h4> Be helpful. Get helpful. </h4></footer>
+
   </body>
 </html>

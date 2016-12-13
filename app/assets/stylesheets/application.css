@@ -16,33 +16,53 @@
 
 
 
-.body{
- max-width: 767px;
- margin-left:-20px;
- margin-right:-20px;
+html, body {
+  height: 100%;
+}
+
+#wrap {
+  min-height: 100%;
+}
+
+#main {
+  overflow:auto;
+  padding-bottom:150px; /* this needs to be bigger than footer height*/
 }
 
 .footer {
-	position: relative;
-	bottom: 0px;
-	background-color:#162f5e;
-	color: #F7F8FC;
-	text-align: center;
-	padding: 1px;
+  position: relative;
+  margin-top: -80px; /* negative value of footer height */
+  height: 80px;
+  clear:both;
+  padding-top:20px;
+    padding: 1rem;
+  background-color:#162f5e;
+  color: #F7F8FC;
+  text-align: center;
+} 
+
+/*.footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  background-color:#162f5e;
+  color: #F7F8FC;
+  text-align: center;
 }
+*/
 
 .header {
 	background-color:#162f5e;
 	color: #F7F8FC;
 }
 
-.backdrop { 
-	position: relative;
+.body { 
+	
 	background-color:#adc9ff;
-	height: 100%;
-
-
  }
+
  #map{
  	position: relative;
  	float: left;
@@ -90,7 +110,7 @@
   width: 100%;
 }
 .backdrop {
-  min-height: 94vh;
+  min-height: 54vh;
   width: 100%;
 }
 
@@ -187,7 +207,8 @@ input[type=text]:focus {
 	word-wrap: break-word;
 }
 .container-reviews{
-	margin-bottom: 10px;
+	margin-bottom: 0px;
+	padding: 1rem;
 }
 
 .project-details-page{
@@ -212,5 +233,14 @@ input[type=text]:focus {
 
 .sign{
 	position:relative;
-	left:500px;
+	left:570px;
+}
+
+.about-content {
+	padding: 2rem;
+}
+
+legend{
+	position:relative;
+	left:20px;
 }
