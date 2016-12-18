@@ -244,3 +244,7 @@ legend{
 	position:relative;
 	left:20px;
 }
+
+.field{
+	max-width: 150px; 
+}
